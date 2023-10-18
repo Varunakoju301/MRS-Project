@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Music Preferences</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Share Your Music Preferences</h1>
+        <form id="musicPreferencesForm">
+            <div class="form-group">
+                <label for="genreSelect">Preferred Genre</label>
+                <select class="form-control" id="genreSelect" name="genre">
+                    <option value="empty1"></option>
+                    <option value="classic">Classic</option>
+                    <option value="hiphop">Hip-Hop</option>
+                    <option value="rock">Rock</option>
+                    <option value="jazz">Jazz</option>
+                    <option value="others">Others</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="moodSelect">Current Mood</label>
+                <select class="form-control" id="moodSelect" name="mood">
+                    <option value="empty2"></option>
+                    <option value="happy">Happy</option>
+                    <option value="relaxed">Relaxed</option>
+                    <option value="energetic">Energetic</option>
+                    <option value="melancholy">Melancholy</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="artistsInput">Favorite Artists</label>
+                <input type="text" class="form-control" id="artistsInput" name="artists">
+            </div>
+
+            <div class="form-group">
+                <label for="locationInput">Favorite Albums</label>
+                <input type="text" class="form-control" id="locationInput" name="location">
+            </div>
+
+            <div class="form-group">
+                <label for="locationInput">Preferred Location/Country</label>
+                <input type="text" class="form-control" id="locationInput" name="location">
+            </div>
+
+            <button type="button" onclick="submitForm()">Create Playlist</button>
+        </form>
+    </div>
+
+    <script>
+        function submitForm() {
+            var genre = document.getElementById("genreSelect").value;
+            var mood = document.getElementById("moodSelect").value;
+            var artists = document.getElementById("artistsInput").value;
+            var location = document.getElementById("locationInput").value;
+
+            // You can process the collected data here, for example, send it to a server
+
+            alert("Thank you for sharing your music preferences!");
+        }
+    </script>
+</body>
+
+</html>
