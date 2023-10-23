@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <!-- site metas -->
+    <link rel="icon" type="image/x-icon" href="%PUBLIC_URL%/favicon.ico"/>
     <title>Music Recommendation System</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
@@ -34,9 +35,9 @@
 
 <body class="main-layout contact-page">
     <!-- loader  -->
-    <div class="loader_bg">
+    <!-- <div class="loader_bg">
         <div class="loader"><img src="images/loading.gif" alt="#" /></div>
-    </div>
+    </div> -->
     <!-- end loader -->
     <!-- header -->
     <header>
@@ -60,9 +61,10 @@
                                     <ul class="menu-area-main">
                                         <li> <a href="index.html">Home</a> </li>
                                         <li> <a href="about.html">about</a> </li>
-                                        <li> <a href="album.html"> Albums</a> </li>
+                                        <!-- <li> <a href="album.html"> Albums</a> </li> -->
                                         <li> <a href="blog.html">Blog</a> </li>
                                         <li class="active"> <a href="contact.html">Contact</a> </li>
+                                        <li> <a>Login</a> </li>
                                         <!-- <li> <a href="#contact">Login</a> </li> -->
                                     </ul>
                                 </nav>
@@ -113,7 +115,7 @@
                                 <textarea class="textarea" placeholder="Message" type="text" name="Message"></textarea>
                             </div>
                             <div class="col-sm-12">
-                                <button class="send">Send</button>
+                                <button class="send" onclick="submitForm()">Send</button>
                             </div>
                         </div>
                     </form>
@@ -134,23 +136,12 @@
     <!-- sidebar -->
     <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="js/custom.js"></script>
-    <!-- <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
     <script>
-        $(document).ready(function() {
-            $(".fancybox").fancybox({
-                openEffect: "none",
-                closeEffect: "none"
-            });
-
-            $(".zoom").hover(function() {
-
-                $(this).addClass('transition');
-            }, function() {
-
-                $(this).removeClass('transition');
-            });
-        });
-    </script> -->
+        function submitForm() {
+    
+            alert("Thank you for your Response!");
+        }</script>
 </body>
 
 </html>

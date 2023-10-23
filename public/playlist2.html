@@ -96,11 +96,20 @@
                 <input type="text" class="form-control" id="locationInput" name="location">
             </div>
 
-            <button type="button" onclick="submitForm()">Create Playlist</button>
+            <div class="form-group">
+                <label for="locationInput">Search for a song</label>
+           <input type="text" id="searchQuery" placeholder="Search for a song...">
+           </div>
+
+
+            <button type="button" onclick="search()">Create Playlist</button>
         </form>
     </div>
 
+    <div id="results"></div>
+
     <script>
+
         function submitForm() {
             var genre = document.getElementById("genreSelect").value;
             var mood = document.getElementById("moodSelect").value;
@@ -110,6 +119,50 @@
             // You can process the collected data here, for example, send it to a server
 
             alert("Thank you for sharing your music preferences!");
+        }
+        
+        const QUERY_URL = "http://localhost:8080/api";
+
+        function search() {
+            console.log("In-Progress");
+
+            let songStr = document.getElementById('searchQuery').value;
+            console.log("songStr :", songStr);
+            let requestBody = {
+                "query" : songStr
+            }
+            console.log("requestBody :", requestBody);
+
+            fetch('http://localhost:8080/api/search', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(requestBody),
+            })
+            
+            //MRSService.sendQuery()
+            //axios.post(QUERY_URL + '/search', "happy")
+            .then(response => response.json())
+            .then(data => {
+                const resultsDiv = document.getElementById('results');
+                resultsDiv.innerHTML = '';
+
+                if (data.error) {
+                    resultsDiv.innerHTML = `<p>Error: ${data.error}</p>`;
+                } else {
+                    data.tracks.items.forEach(item => {
+                        resultsDiv.innerHTML += `
+                            <div>
+                                <h3>${item.name}</h3>
+                                <p>Artists: ${item.artists.map(artist => artist.name).join(', ')}</p>
+                                <p>Album: ${item.album.name}</p>
+                                <img src="${item.album.images[0].url}" alt="Album Cover">
+                            </div>
+                        `;
+                    });
+                }
+            });
         }
     </script>
 </body>

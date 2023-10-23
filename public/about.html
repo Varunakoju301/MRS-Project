@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <!-- site metas -->
+    <link rel="icon" type="image/x-icon" href="%PUBLIC_URL%/favicon.ico"/>
     <title>Music Recommendation System</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
@@ -34,9 +35,9 @@
 
 <body class="main-layout about-page">
     <!-- loader  -->
-    <div class="loader_bg">
+    <!-- <div class="loader_bg">
         <div class="loader"><img src="images/loading.gif" alt="#" /></div>
-    </div>
+    </div> -->
     <!-- end loader -->
     <!-- header -->
     <header>
@@ -61,9 +62,10 @@
 
                                         <li> <a href="index.html">Home</a> </li>
                                         <li class="active"> <a href="about.html">about</a> </li>
-                                        <li> <a href="album.html"> Albums</a> </li>
+                                        <!-- <li> <a href="album.html"> Albums</a> </li> -->
                                         <li> <a href="blog.html">Blog</a> </li>
                                         <li> <a href="contact.html">Contact</a> </li>
+                                        <li> <a>Login</a> </li>
                                         <!-- <li> <a href="#contact">Login</a> </li> -->
                                     </ul>
                                 </nav>
@@ -155,50 +157,6 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12 width">
-                        <div class="address">
-                            <h3>Get In Touch</h3>
-                            <form>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <input class="contactus" placeholder="Name" type="text" name="Name">
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <input class="contactus" placeholder="Phone" type="text" name="Email">
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <input class="contactus" placeholder="Email" type="text" name="Email">
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <textarea class="textarea" placeholder="Message" type="text" name="Message"></textarea>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <button class="send" onclick="submitForm()">Send</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 width">
-                        <div class="address">
-                            <h3>New Music </h3>
-                            <div class="row">
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
-                                    <figure><img src="images/music1.jpg" /></figure>
-                                </div>
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
-                                    <figure><img src="images/music2.jpg" /></figure>
-                                </div>
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
-                                    <figure><img src="images/music3.jpg" /></figure>
-                                </div>
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
-                                    <figure><img src="images/music4.jpg" /></figure>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -213,23 +171,6 @@
     <!-- sidebar -->
     <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="js/custom.js"></script>
-    <!-- <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $(".fancybox").fancybox({
-                openEffect: "none",
-                closeEffect: "none"
-            });
-
-            $(".zoom").hover(function() {
-
-                $(this).addClass('transition');
-            }, function() {
-
-                $(this).removeClass('transition');
-            });
-        });
-    </script> -->
 
     <script>
     function submitForm() {
