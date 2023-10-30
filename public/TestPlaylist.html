@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Music App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="App2.css">
+</head>
+<body>
+    <div class="App">
+        <div class="filters-bar"></div>
+        <div class="slide-in"></div>
+        <div class="site-content">
+            <div class="user-contribution">
+                <div class="default-button-container">
+                    <a href="#" id="getToken">Get token</a>
+                </div>
+                <div class="default-button-container">
+                    <button id="resetFilters">Reset filters</button>
+                </div>
+                <div class="search-form-container">
+                    <form class="search-form">
+                        <input class="search-input" type="text" placeholder="Search for music">
+                        <button class="submit-button" type="submit">Submit</button>
+                    </form>
+                </div>
+                <div class="search-results-container">
+                    <div class="search-results-grid"></div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="change-page-button-container">
+                <button class="change-page-button" disabled>
+                    <img src="images/prevPage.webp" alt="prev page">
+                </button>
+            </div>
+        
+            <div class="change-page-button-container">
+                <button class="change-page-button" disabled>
+                    <img src="images/nextPage.webp" alt="next page">
+                </button>
+            </div>
+        </footer>
+    </div>
+    <script src="TestPlaylist.js"></script>
+</body>
+</html>

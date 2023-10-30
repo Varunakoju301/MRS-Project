@@ -1,0 +1,90 @@
+/* body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 50px;
+}
+
+input, button {
+    font-size: 16px;
+    margin: 5px;
+    padding: 5px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 10px;
+    display: inline-block;
+    text-align: left;
+}
+
+.song-card {
+    max-width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+.song-card img {
+    max-width: 100%;
+    border-radius: 4px;
+} */
+
+
+.recommendations-container {
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.recommendations-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.recommendations-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.song-card {
+    max-width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px;
+    background-color: #f9f9f9;
+}
+
+.song-card img {
+    max-width: 100%;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.song-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.artist-name {
+    font-style: italic;
+}
+
+.user-input-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.user-input-container input,
+.user-input-container button {
+    font-size: 16px;
+    margin: 5px;
+    padding: 5px;
+}

@@ -26,15 +26,14 @@
     <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
     <!-- Tweaks for older IEs-->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen"> -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+
+    <link rel="stylesheet" href="SongRecommender.css">
+    
 </head>
 <!-- body -->
 
-<body class="main-layout contact-page">
-
+<!-- <body class="main-layout about-page"> -->
+    <body class="main-layout">
     <!-- header -->
     <header>
         <!-- header inner -->
@@ -57,15 +56,14 @@
                                     <ul class="menu-area-main">
                                         <li> <a href="index.html">Home</a> </li>
                                         <li> <a href="about.html">about</a> </li>
-
-                                        <li class="dropdown"> <a href="#" class="dropdown-toggle">Features</a>
+                                        <li class="dropdown active"> <a href="#" class="dropdown-toggle">Features</a>
                                             <div class="dropdown-content">
                                                 <a href="playlist.html">Create Playlist</a>
                                                 <a href="SongRecommender.html">Music Recommender</a>
                                             </div>
                                         </li>
                                         <li> <a href="blog.html">Blog</a> </li>
-                                        <li class="active"> <a href="contact.html">Contact</a> </li>
+                                        <li> <a href="contact.html">Contact</a> </li>
                                     </ul>
                                 </nav>
                             </div>
@@ -79,56 +77,22 @@
     <!-- end header -->
 
 
-    <div class="contact-page">
-        <br></br>
-        <div class="container">
-            <div class="row">
-                <div class=" col-md-6 offset-md-3">
-                    <div class="address">
 
-                        <form>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <input class="contactus" placeholder="Name" type="text" name="Name">
-                                </div>
-                                <div class="col-sm-12">
-                                    <input class="contactus" placeholder="Phone" type="text" name="Email">
-                                </div>
-                                <div class="col-sm-12">
-                                    <input class="contactus" placeholder="Email" type="text" name="Email">
-                                </div>
-                                <div class="col-sm-12">
-                                    <textarea class="textarea" placeholder="Message" type="text"
-                                        name="Message"></textarea>
-                                </div>
-                                <div class="col-sm-12">
-                                    <button class="send" onclick="submitForm()">Send</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+    <div class="recommendations-container">
+        <div class="recommendations-header">
+            <h2>Recommended Songs</h2>
         </div>
-        <!--  footer -->
 
+        <div class="user-input-container">
+            <label for="favoriteArtists">Enter your favorite artists (comma-separated): </label>
+            <input type="text" id="favoriteArtists">
+            <button onclick="getAccessTokenAndRecommendations()">Get Recommendations</button>
+        </div>
+
+        <ul class="recommendations-list" id="recommendations"></ul>
     </div>
-    <!-- end footer -->
-    <!-- Javascript files-->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/jquery-3.0.0.min.js"></script>
-    <script src="js/plugin.js"></script>
-    <!-- sidebar -->
-    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="js/custom.js"></script>
 
-    <script>
-        function submitForm() {
-
-            alert("Thank you for your Response!");
-        }</script>
+    <script src="SongRecommender.js"></script>
 </body>
 
 </html>

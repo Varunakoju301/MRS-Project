@@ -105,7 +105,7 @@
      transition: all .3s ease-in-out;
 }
  img {
-     max-width: 200%;
+     max-width: 100%;
      height: auto;
 }
  :focus {
@@ -347,7 +347,17 @@
 }
  .logo {
      float: left;
+     margin-top: -10px; /* Adjust the value as needed */
 }
+
+/* Added */
+.logo img {
+    max-width: 200%;
+    height: auto;
+    /* width: 150px;  */
+    /* Adjust the width to increase or decrease the size */
+}
+
  nav.main-menu {
      float: right;
      margin-left: 0;
@@ -511,6 +521,14 @@
      padding: 0 5px;
      font-size: 13px;
 }
+
+/* Added */
+/* Custom CSS for the dropdown menu */
+.dropdown-menu {
+    background-color: rgb(160, 160, 167); /* Example background color */
+    /* Add more custom styles as needed */
+}
+
  .dropdown-bar .dropdown-link.right-sd {
      left: auto;
      right: 0;
@@ -1349,8 +1367,9 @@
  .header {
      background: #070100;
      padding: 23px 0px;
-     border-top: #cf2323 solid 5px;
-     border-bottom: #cf2323 solid 5px;
+     border-top: #857f7f solid 5px;
+     border-bottom: #857f7f solid 5px;
+     height: 100px; /* Added- Adjust the height value as needed */
 }
  .logo a {
      font-size: 40px;
@@ -1435,7 +1454,7 @@
 /** music-box **/
  .music-box {
      padding: 90px 0px;
-     background: #fff;
+     background: rgba(172, 171, 179, 0.386);
 }
  .music-box .for-box {
      padding: 0px 20px;
@@ -1513,7 +1532,7 @@
 /** Lastestnews **/
  .Lastestnews {
      padding:90px 0px;
-     background: #fff;
+     background: rgba(172, 171, 179, 0.386);
 }
  .Lastestnews .titlepage {
      text-align: center;
@@ -1748,7 +1767,8 @@
 }
  .footer {
      background: #0b0808;
-     padding-top: 90px;
+     padding-top: 0px;
+     width: 100%;
 }
  .footer .address h3 {
      color: #fff;
@@ -1959,3 +1979,60 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+
+/* Added */
+/* .contact-page{
+    background: rgba(172, 171, 179, 0.386);
+} */
+
+/* Style the dropdown button */
+.dropdown-toggle {
+    cursor: pointer;
+    padding: 10px 20px; /* Adjust padding to make it visually appealing */
+    color: #333; /* Set the text color */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Ensure proper alignment */
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #0b0b0b;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    list-style-type: none;
+    padding: 0;
+    margin: 0; /* Remove default margin */
+}
+
+/* Style the links inside the dropdown */
+.dropdown-content a {
+    padding: 10px 20px; /* Adjust padding to make it visually appealing */
+    text-decoration: none;
+    display: block;
+    color: #333;
+    font-size: 5px; /* Add this line to set the font size */
+    text-transform: lowercase;
+}
+
+/* On hover, the links change color */
+.dropdown-content a:hover {
+    background-color: rgb(163, 163, 168);
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Adjust alignment of the dropdown menu */
+.dropdown-content a {
+    text-align: left;
+    text-transform: lowercase;
+}
+
+
+
+

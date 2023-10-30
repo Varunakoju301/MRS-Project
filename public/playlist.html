@@ -27,22 +27,23 @@
 
   <link rel="icon" type="image/x-icon" href="%PUBLIC_URL%/favicon.ico" />
   <title>Music Recommendation System</title>
-  
+
   <style>
     .required:after {
-      content:" *";
+      content: " *";
       color: red;
     }
   </style>
 </head>
 
 <body>
+  <!-- header -->
   <header>
     <!-- header inner -->
     <div class="header">
       <div class="container">
         <div class="row">
-          <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col logo_section">
+          <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col logo_section"> <!-- Removed "text-right" class -->
             <div class="full">
               <div class="center-desk">
                 <div class="logo">
@@ -51,40 +52,42 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-8 col-lg-8 col-md-10 col-sm-10">
+          <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 text-right">
+            <!-- Kept the number of columns as 10 and added "text-right" class -->
             <div class="menu-area">
               <div class="limit-box">
                 <nav class="main-menu">
                   <ul class="menu-area-main">
-                    <li class="active"> <a href="index.html">Home</a> </li>
+                    <li> <a href="index.html">Home</a> </li>
                     <li> <a href="about.html">about</a> </li>
-                    <!-- <li> <a href="album.html"> Albums</a> </li> -->
+
+                    <li class="dropdown active"> <a href="#" class="dropdown-toggle">Features</a>
+                      <div class="dropdown-content">
+                          <a href="playlist.html">Create Playlist</a>
+                          <a href="SongRecommender.html">Music Recommender</a>
+                      </div>
+                  </li>
+
                     <li> <a href="blog.html">Blog</a> </li>
                     <li> <a href="contact.html">Contact</a> </li>
-                    <!-- <li> <a>Login</a> </li> -->
-                    <!-- <li> <a href="#contact">Login</a> </li> -->
                   </ul>
                 </nav>
               </div>
             </div>
           </div>
-          <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
-            <form class="search">
-              <input class="form-control" type="text" placeholder="Search">
-              <button><img src="images/search_icon.png"></button>
-            </form>
-          </div>
         </div>
       </div>
-      <!-- end header inner -->
+    </div>
+    <!-- end header inner -->
   </header>
   <!-- end header -->
+
   <div class='container'>
     <h3><b>Share Your Music Preferences</b></h3>
     <form action='' id="list-form">
 
       <input type='hidden' id='hidden_token'>
-      <div class='col-sm-6 form-group row mt-4 px-0' class = 'required'>
+      <div class='col-sm-6 form-group row mt-4 px-0' class='required'>
         <label for='Genre' class='form-label col-sm-2 required'>Preferred Genre:</label>
         <select name='' id='select_genre' class='form-control form-control-sm col-sm-10' required>
           <option value=''>Select...</option>
@@ -113,7 +116,8 @@
 
       <div class='col-sm-6 form-group row mt-4 px-0'>
         <label for='pre-country' class='form-label col-sm-2 required'>Preferred Country:</label>
-        <input type="text" class="form-control form-control-sm col-sm-10" id="select_country" name=""  placeholder="Preferred Country" required>
+        <input type="text" class="form-control form-control-sm col-sm-10" id="select_country" name=""
+          placeholder="Preferred Country" required>
         <!-- <input type="text" class="form-control" id="select_country" name=""> -->
         <!-- <select name='' id='select_artist' class='form-control form-control-sm col-sm-10'>
           <option value =''>Select...</option>
@@ -143,17 +147,14 @@
       <h3>Songs List</h3>
       <div class=' row'>
         <div class='col-sm-6 px-0'>
-          <div class='list-group song-list'>
-
-          </div>
+          <div class='list-group song-list'> </div>
         </div>
-        <div class='offset-md-1 col-sm-4' id='song-detail'>
-        </div>
+        <div class='offset-md-1 col-sm-4' id='song-detail'> </div>
       </div>
     </div>
-  </div>
 
-<br></br>
+  </div>
+  <br></br>
 
   <script>
 
@@ -208,7 +209,7 @@
 
   <script src='/playlist.js' type='text/javascript'></script>
 
-  
+
 
 </body>
 

@@ -286,7 +286,7 @@ const APPController = (function(UICtrl, APICtrl) {
 
   return {
       init() {
-          console.log('App is starting');
+          console.log('In-progress');
           loadGenres();
       }
   }
