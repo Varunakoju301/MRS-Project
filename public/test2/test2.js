@@ -1,7 +1,7 @@
 var redirect_uri = "http://localhost:3000/test2/test2.html" // change this your value
 
 var client_id = ""; 
-var client_secret = ""; // In a real app you should not expose your client_secret to the user
+var client_secret = ""; // In a real app you should not expose your client_secret to the user 
 
 var access_token = null;
 var refresh_token = null;
@@ -24,6 +24,9 @@ const SHUFFLE = "https://api.spotify.com/v1/me/player/shuffle";
 function onPageLoad(){
     client_id = localStorage.getItem("client_id");
     client_secret = localStorage.getItem("client_secret");
+    // console.log("client_id-->", client_id);
+    // console.log("client_secret-->", client_secret);
+
     if ( window.location.search.length > 0 ){
         handleRedirect();
     }
@@ -108,6 +111,7 @@ function handleAuthorizationResponse(){
         var data = JSON.parse(this.responseText);
         if ( data.access_token != undefined ){
             access_token = data.access_token;
+            console.log("access_token-->", access_token);
             localStorage.setItem("access_token", access_token);
         }
         if ( data.refresh_token  != undefined ){
@@ -207,8 +211,8 @@ function play(){
     body.offset = {};
     body.offset.position = trackindex.length > 0 ? Number(trackindex) : 0;
     body.offset.position_ms = 0;
-    // callApi( "PUT", PLAY + "?device_id=" + deviceId(), JSON.stringify(body), handleApiResponse );
-    callApi( "PUT", PLAY, JSON.stringify(body), handleApiResponse );
+    callApi( "PUT", PLAY + "?device_id=" + deviceId(), JSON.stringify(body), handleApiResponse );
+    // callApi( "PUT", PLAY, JSON.stringify(body), handleApiResponse );
 }
 
 function shuffle(){

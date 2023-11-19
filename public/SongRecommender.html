@@ -28,12 +28,13 @@
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 
     <link rel="stylesheet" href="SongRecommender.css">
-    
+
 </head>
 <!-- body -->
 
 <!-- <body class="main-layout about-page"> -->
-    <body class="main-layout">
+
+<body class="main-layout">
     <!-- header -->
     <header>
         <!-- header inner -->
@@ -56,13 +57,17 @@
                                     <ul class="menu-area-main">
                                         <li> <a href="index.html">Home</a> </li>
                                         <li> <a href="about.html">about</a> </li>
-                                        <li class="dropdown active"> <a href="#" class="dropdown-toggle">Features</a>
+
+                                        <li class="dropdown" class="active"> <a href="#" class="dropdown-toggle">Features</a>
                                             <div class="dropdown-content">
-                                                <a href="playlist.html">Create Playlist</a>
+                                                <!-- <a href="http://localhost:3001/">Create Custom Playlist</a> -->
+                                                <a id="createPlaylistLink" href="#">Create Custom Playlist</a>
+                                                <a href="playlist.html">Generate Playlists</a>
                                                 <a href="SongRecommender.html">Music Recommender</a>
                                             </div>
                                         </li>
-                                        <li> <a href="blog.html">Blog</a> </li>
+
+                                        <!-- <li> <a href="blog.html">Blog</a> </li> -->
                                         <li> <a href="contact.html">Contact</a> </li>
                                     </ul>
                                 </nav>
@@ -80,7 +85,7 @@
 
     <div class="recommendations-container">
         <div class="recommendations-header">
-            <h2>Recommended Songs</h2>
+            <!-- <h2>Recommended Songs</h2> -->
         </div>
 
         <div class="user-input-container">
@@ -90,9 +95,52 @@
         </div>
 
         <ul class="recommendations-list" id="recommendations"></ul>
+
+        <!-- 11th Oct changes Starts-->
+
+        <!-- <h2>Selected Songs</h2> -->
+        <ul class="playlist" id="playlist"></ul>
+        <br></br>
+        <div class="buttons">
+            <!-- <button onclick="removeSelectedSongs()">Remove Selected Songs</button>
+            <button onclick="savePlaylist()">Save Playlist</button> -->
+
+            <!-- Add audio element -->
+            <audio id="audioPlayer" controls>
+                Your browser does not support the audio tag.
+            </audio>
+            <!-- 11th Oct changes Ends-->
+        </div>
     </div>
 
+    <br></br>
     <script src="SongRecommender.js"></script>
+     <!-- Javascript files-->
+     <!-- <script src="js/jquery.min.js"></script>
+     <script src="js/popper.min.js"></script>
+     <script src="js/bootstrap.bundle.min.js"></script>
+     <script src="js/jquery-3.0.0.min.js"></script>
+     <script src="js/plugin.js"></script>
+     <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+     <script src="js/custom.js"></script> -->
+     <script>
+        // Get the current hostname and port
+        const hostname = window.location.hostname;
+        const port = window.location.port;
+    
+        let baseURL = '';
+        // Set the baseURL based on the hostname and port
+        if (hostname === 'localhost' && port === '3000') {
+            baseURL = 'http://localhost:3001/';
+        } else {
+            // Define your production URL or fallback if not localhost:3001
+            baseURL = 'https://music-recommendation-app2-958a1ed3e5fc.herokuapp.com/';
+        }
+    
+        // Update the "Create Custom Playlist" link
+        document.getElementById('createPlaylistLink').href = baseURL;
+    
+    </script>
 </body>
 
 </html>

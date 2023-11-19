@@ -26,10 +26,9 @@
     <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
     <!-- Tweaks for older IEs-->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen"> -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+
+    <link rel="stylesheet" href="css/contactpage.css">
+
 </head>
 <!-- body -->
 
@@ -60,11 +59,14 @@
 
                                         <li class="dropdown"> <a href="#" class="dropdown-toggle">Features</a>
                                             <div class="dropdown-content">
-                                                <a href="playlist.html">Create Playlist</a>
+                                                <!-- <a href="http://localhost:3001/">Create Custom Playlist</a> -->
+                                                <a id="createPlaylistLink" href="#">Create Custom Playlist</a>
+                                                <a href="playlist.html">Generate Playlists</a>
                                                 <a href="SongRecommender.html">Music Recommender</a>
                                             </div>
                                         </li>
-                                        <li> <a href="blog.html">Blog</a> </li>
+
+                                        <!-- <li> <a href="blog.html">Blog</a> </li> -->
                                         <li class="active"> <a href="contact.html">Contact</a> </li>
                                     </ul>
                                 </nav>
@@ -78,57 +80,88 @@
     </header>
     <!-- end header -->
 
-
-    <div class="contact-page">
-        <br></br>
-        <div class="container">
-            <div class="row">
-                <div class=" col-md-6 offset-md-3">
-                    <div class="address">
-
-                        <form>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <input class="contactus" placeholder="Name" type="text" name="Name">
-                                </div>
-                                <div class="col-sm-12">
-                                    <input class="contactus" placeholder="Phone" type="text" name="Email">
-                                </div>
-                                <div class="col-sm-12">
-                                    <input class="contactus" placeholder="Email" type="text" name="Email">
-                                </div>
-                                <div class="col-sm-12">
-                                    <textarea class="textarea" placeholder="Message" type="text"
-                                        name="Message"></textarea>
-                                </div>
-                                <div class="col-sm-12">
-                                    <button class="send" onclick="submitForm()">Send</button>
-                                </div>
+    <br></br>
+    <div class="col-md-6 offset-md-3">
+        <div class="address">
+            <form class="contact-form"> <!-- Added a class "contact-form" to isolate styles -->
+                <div class="row">
+                    <div class="col-sm-6">
+                        <input class="contactus" placeholder="Name" type="text" name="Name">
+                    </div>
+                    <div class="col-sm-6">
+                        <input class="contactus" placeholder="Phone" type="text" name="Phone">
+                    </div>
+                    <!-- ... (other form elements remain unchanged) ... -->
+                    <div class="col-sm-12">
+                        <input class="contactus" placeholder="Email" type="text" name="Email">
+                    </div>
+                    <div class="col-sm-12">
+                        <textarea class="textarea" placeholder="Message" type="text" name="Message"></textarea>
+                    </div>
+                    <div class="col-sm-6">
+                        <input class="contactus" placeholder="Subject" type="text" name="Subject">
+                    </div>
+                    <div class="col-sm-6">
+                        <input class="contactus" placeholder="City" type="text" name="City">
+                    </div>
+                    <div class="col-sm-12">
+                        <input class="contactus" placeholder="Country" type="text" name="Country">
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label for="FeedbackType">Feedback Type:</label>
                             </div>
-                        </form>
+                            <div class="col-sm-9">
+                                <select class="contactus" name="FeedbackType" id="FeedbackType">
+                                    <option value="empty"></option>
+                                    <option value="Suggestion">Suggestion</option>
+                                    <option value="Query">Query</option>
+                                    <option value="Complaint">Complaint</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <textarea class="textarea" placeholder="Additional Comments" type="text"
+                            name="Comments"></textarea>
+                    </div>
+                    <div class="col-sm-12">
+                        <button class="send" onclick="submitForm()">Send</button>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
-        <!--  footer -->
-
     </div>
-    <!-- end footer -->
+
+    <br></br>
     <!-- Javascript files-->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/jquery-3.0.0.min.js"></script>
-    <script src="js/plugin.js"></script>
-    <!-- sidebar -->
-    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="js/custom.js"></script>
 
     <script>
         function submitForm() {
 
             alert("Thank you for your Response!");
-        }</script>
+        }
+    </script>
+
+<script>
+    // Get the current hostname and port
+    const hostname = window.location.hostname;
+    const port = window.location.port;
+
+    let baseURL = '';
+    // Set the baseURL based on the hostname and port
+    if (hostname === 'localhost' && port === '3000') {
+        baseURL = 'http://localhost:3001/';
+    } else {
+        // Define your production URL or fallback if not localhost:3001
+        baseURL = 'https://music-recommendation-app2-958a1ed3e5fc.herokuapp.com/';
+    }
+
+    // Update the "Create Custom Playlist" link
+    document.getElementById('createPlaylistLink').href = baseURL;
+
+</script>
 </body>
 
 </html>

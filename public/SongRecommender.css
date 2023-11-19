@@ -1,41 +1,4 @@
-/* body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 50px;
-}
-
-input, button {
-    font-size: 16px;
-    margin: 5px;
-    padding: 5px;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    margin: 10px;
-    display: inline-block;
-    text-align: left;
-}
-
-.song-card {
-    max-width: 200px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 10px;
-    background-color: #f9f9f9;
-}
-
-.song-card img {
-    max-width: 100%;
-    border-radius: 4px;
-} */
-
-
-.recommendations-container {
+/* .recommendations-container {
     margin: 20px auto;
     max-width: 800px;
 }
@@ -53,6 +16,13 @@ li {
     justify-content: space-around;
 }
 
+.playlist {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
 .song-card {
     max-width: 200px;
     border: 1px solid #ccc;
@@ -87,4 +57,157 @@ li {
     font-size: 16px;
     margin: 5px;
     padding: 5px;
+} */
+
+/* Reset some default styles */
+/* body, h1, h2, p, ul {
+    margin: 0;
+    padding: 0;
+} */
+
+/* Improved overall layout */
+/* body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+} */
+
+/* .container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+} */
+
+/* Centered header with some margin */
+.recommendations-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Flexible and responsive recommendations and playlist layout */
+.recommendations-list, .playlist {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* Stylish song card with better spacing */
+.song-card {
+    max-width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px;
+    background-color: #000;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.song-card:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive image styling */
+.song-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Improved text styling for song details */
+.song-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.artist-name {
+    font-size: 14px;
+    font-style: italic;
+    color: #555;
+}
+
+/* Centered user input container */
+.user-input-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Stylish user input and button */
+.user-input-container input,
+.user-input-container button {
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 5px;
+    width: 60%;
+}
+
+.user-input-container button {
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.user-input-container button:hover {
+    background-color: #45a049;
+}
+
+
+/*  */
+/* Fixed audio player styles */
+#audioPlayer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #282828;
+    border-top: 1px solid #333;
+    padding: 10px;
+    box-sizing: border-box;
+    z-index: 1000; /* Adjust the z-index to make sure it appears above other content */
+}
+
+audio {
+    width: 100%;
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+}
+
+/* Player controls */
+audio::-webkit-media-controls-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh; */
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the play button */
+audio::-webkit-media-controls-play-button {
+    background-color: #4CAF50; /* Green color */
+    width: 100px; /* Adjust width */
+    height: 100px; /* Adjust height */
+    border-radius: 50%; /* Make it round */
+}
+
+/* Style the play icon inside the button */
+audio::-webkit-media-controls-play-button::before {
+    content: '\25B6'; /* Unicode for play icon (triangle right) */
+    font-size: 60px; /* Adjust icon size */
+    line-height: 100px; /* Center the icon vertically */
+    color: #fff; /* White color for the icon */
+}
+
+body {
+    color: #f8f9fa;
+    background-color: #111111;
 }

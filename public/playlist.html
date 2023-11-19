@@ -61,14 +61,16 @@
                     <li> <a href="index.html">Home</a> </li>
                     <li> <a href="about.html">about</a> </li>
 
-                    <li class="dropdown active"> <a href="#" class="dropdown-toggle">Features</a>
-                      <div class="dropdown-content">
-                          <a href="playlist.html">Create Playlist</a>
-                          <a href="SongRecommender.html">Music Recommender</a>
-                      </div>
-                  </li>
+                  <li class="dropdown" class="active"> <a href="#" class="dropdown-toggle">Features</a>
+                    <div class="dropdown-content">
+                        <!-- <a href="http://localhost:3001/">Create Custom Playlist</a> -->
+                        <a id="createPlaylistLink" href="#">Create Custom Playlist</a>
+                        <a href="playlist.html">Generate Playlists</a>
+                        <a href="SongRecommender.html">Music Recommender</a>
+                    </div>
+                </li>
 
-                    <li> <a href="blog.html">Blog</a> </li>
+                    <!-- <li> <a href="blog.html">Blog</a> </li> -->
                     <li> <a href="contact.html">Contact</a> </li>
                   </ul>
                 </nav>
@@ -209,7 +211,24 @@
 
   <script src='/playlist.js' type='text/javascript'></script>
 
+  <script>
+    // Get the current hostname and port
+    const hostname = window.location.hostname;
+    const port = window.location.port;
 
+    let baseURL = '';
+    // Set the baseURL based on the hostname and port
+    if (hostname === 'localhost' && port === '3000') {
+        baseURL = 'http://localhost:3001/';
+    } else {
+        // Define your production URL or fallback if not localhost:3001
+        baseURL = 'https://music-recommendation-app2-958a1ed3e5fc.herokuapp.com/';
+    }
+
+    // Update the "Create Custom Playlist" link
+    document.getElementById('createPlaylistLink').href = baseURL;
+
+</script>
 
 </body>
 

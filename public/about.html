@@ -58,12 +58,14 @@
 
                                         <li class="dropdown"> <a href="#" class="dropdown-toggle">Features</a>
                                             <div class="dropdown-content">
-                                                <a href="playlist.html">Create Playlist</a>
+                                                <!-- <a href="http://localhost:3001/">Create Custom Playlist</a> -->
+                                                <a id="createPlaylistLink" href="#">Create Custom Playlist</a>
+                                                <a href="playlist.html">Generate Playlists</a>
                                                 <a href="SongRecommender.html">Music Recommender</a>
                                             </div>
                                         </li>
                                         
-                                        <li> <a href="blog.html">Blog</a> </li>
+                                        <!-- <li> <a href="blog.html">Blog</a> </li> -->
                                         <li> <a href="contact.html">Contact</a> </li>
                                     </ul>
                                 </nav>
@@ -77,18 +79,19 @@
     </header>
     <!-- end header -->
 
-     <!-- music-box  -->
-     <div class="music-box">
+      <!-- music-box  -->
+    <div class="music-box">
         <div class="container">
             <div class="row">
                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                     <div class="for-box">
-                        <a href="playlist.html">
+                        <!-- <a href="playlist.html"> -->
+                            <!-- <a href=" http://localhost:3001/"> -->
+                                <a href="https://music-recommendation-app2-958a1ed3e5fc.herokuapp.com/"> 
+                            <!-- <a id="createPlaylistLink" href="#"> -->
                             <i><img src="icon/icon1.png" alt="icon" /></i>
-                            <h3>Custom Music Playlist</h3>
-                            <p>Custom Music Playlist helps you to build a customized playlist for you based on your
-                                input
-                            </p>
+                            <h3>Create Personalized Playlist</h3>
+                            <p>Personalized Music Playlist helps you to build a personalized music for you based on your input/</p>
                         </a>
                     </div>
                 </div>
@@ -112,16 +115,25 @@
                 </div>
                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                     <div class="for-box">
+                        <a href="contact.html">
+                            <i><img src="icon/icon4.png" alt="icon" /></i>
+                            <h3>Feedback</h3>
+                            <p>User Feedback helps us to improve our Recommendation system to give better music experience</p>
+                        </a>
+                    </div>
+                </div>
+                <!-- <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                    <div class="for-box">
                         <a href="playlist.html">
                             <i><img src="icon/icon4.png" alt="icon" /></i>
                             <h3>Colloborative Playlist</h3>
                             <p>Colloborative Playlist helps you share you personalized playlist with your friends</p>
                         </a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
-    </div>
+
     <!-- end music-box  -->
 
     <!--  footer -->
@@ -160,6 +172,24 @@
 
             alert("Thank you for your Response!");
         }</script>
+        <script>
+            // Get the current hostname and port
+            const hostname = window.location.hostname;
+            const port = window.location.port;
+        
+            let baseURL = '';
+            // Set the baseURL based on the hostname and port
+            if (hostname === 'localhost' && port === '3000') {
+                baseURL = 'http://localhost:3001/';
+            } else {
+                // Define your production URL or fallback if not localhost:3001
+                baseURL = 'https://music-recommendation-app2-958a1ed3e5fc.herokuapp.com/';
+            }
+        
+            // Update the "Create Custom Playlist" link
+            document.getElementById('createPlaylistLink').href = baseURL;
+        
+        </script>
 </body>
 
 </html>

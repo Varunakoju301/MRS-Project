@@ -58,15 +58,16 @@
 
                                         <li class="dropdown"> <a href="#" class="dropdown-toggle">Features</a>
                                             <div class="dropdown-content">
-                                                <a href="playlist.html">Create Playlist</a>
+                                                <a id="createPlaylistLink" href="#">Create Custom Playlist</a>
+                                                <a href="playlist.html">Generate Playlists</a>
                                                 <a href="SongRecommender.html">Music Recommender</a>
                                             </div>
                                         </li>
-                                        <li> <a href="blog.html">Blog</a> </li>
+                                        <!-- <li> <a href="blog.html">Blog</a> </li> -->
                                         <li> <a href="contact.html">Contact</a> </li>
                                         <!-- <li> <a href="./Test/Test.html">Test</a> </li> -->
                                         <!-- <li> <a href="./test2/test2.html">Test2</a> </li> -->
-                                        <!-- <li> <a href="./test3/test3.html">Test3</a> </li> -->
+                                        <!-- <li> <a href="http://localhost:3001/">Test3</a> </li> -->
                                     </ul>
                                 </nav>
                             </div>
@@ -102,12 +103,13 @@
             <div class="row">
                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                     <div class="for-box">
-                        <a href="playlist.html">
+                        <!-- <a href="playlist.html"> -->
+                            <!-- <a href=" http://localhost:3001/"> -->
+                                <a href="https://music-recommendation-app2-958a1ed3e5fc.herokuapp.com/"> 
+                            <!-- <a id="createPlaylistLink" href="#"> -->
                             <i><img src="icon/icon1.png" alt="icon" /></i>
-                            <h3>Custom Music Playlist</h3>
-                            <p>Custom Music Playlist helps you to build a customized playlist for you based on your
-                                input
-                            </p>
+                            <h3>Create Personalized Playlist</h3>
+                            <p>Personalized Music Playlist helps you to build a personalized music for you based on your input/</p>
                         </a>
                     </div>
                 </div>
@@ -131,28 +133,34 @@
                 </div>
                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                     <div class="for-box">
+                        <a href="contact.html">
+                            <i><img src="icon/icon4.png" alt="icon" /></i>
+                            <h3>Feedback</h3>
+                            <p>User Feedback helps us to improve our Recommendation system to give better music experience</p>
+                        </a>
+                    </div>
+                </div>
+                <!-- <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                    <div class="for-box">
                         <a href="playlist.html">
                             <i><img src="icon/icon4.png" alt="icon" /></i>
                             <h3>Colloborative Playlist</h3>
                             <p>Colloborative Playlist helps you share you personalized playlist with your friends</p>
                         </a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
 
     <!-- end music-box  -->
 
     <br></br>
-    <br></br>
-    <div class="text-center my-3">
+    <!-- <div class="text-center my-3">
         <h1>Click the button below to create your own customized playlist</h1>
         <form id="redirectForm">
-            <!-- <input type="submit" value="Redirect"> -->
             <button type="submit" class="btn btn-info btn-lg text-white px-5 py-2">Create Playlist</button>
         </form>
-        <!-- <br></br> -->
-    </div>
+    </div> -->
 
 </div>
 
@@ -188,14 +196,31 @@
     <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="js/custom.js"></script>
    
-    <script>
+    <!-- <script>
         document.getElementById('redirectForm').addEventListener('submit', function (e) {
             e.preventDefault();
             window.location.href = 'playlist.html'; // Replace with the target page URL
         });
 
+    </script> -->
+    <script>
+        // Get the current hostname and port
+        const hostname = window.location.hostname;
+        const port = window.location.port;
+    
+        let baseURL = '';
+        // Set the baseURL based on the hostname and port
+        if (hostname === 'localhost' && port === '3000') {
+            baseURL = 'http://localhost:3001/';
+        } else {
+            // Define your production URL or fallback if not localhost:3001
+            baseURL = 'https://music-recommendation-app2-958a1ed3e5fc.herokuapp.com/';
+        }
+    
+        // Update the "Create Custom Playlist" link
+        document.getElementById('createPlaylistLink').href = baseURL;
+    
     </script>
-
 
 </body>
 

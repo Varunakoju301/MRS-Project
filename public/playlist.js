@@ -125,12 +125,53 @@ const UIController = (function() {
           document.querySelector(DOMElements.selectPlaylist).insertAdjacentHTML('beforeend', html);
       },
 
-      // need method to create a track list group item 
-      createTrack(id, name) {
-          const html = `<a href="#" class="list-group-item list-group-item-action list-group-item-light" id="${id}">${name}</a>`;
-          document.querySelector(DOMElements.divSonglist).insertAdjacentHTML('beforeend', html);
-      },
+    //   // need method to create a track list group item 
+    //   createTrack(id, name) {
+    //       const html = `<a href="#" class="list-group-item list-group-item-action list-group-item-light" id="${id}">${name}</a>`;
+    //       document.querySelector(DOMElements.divSonglist).insertAdjacentHTML('beforeend', html);
+    //   },
 
+    // Play button changes 15-11
+    createTrack(id, name) {
+        const html = `<a href="#" class="list-group-item list-group-item-action list-group-item-light" id="${id}" data-track="${id}">${name}</a>`;
+        document.querySelector(DOMElements.divSonglist).insertAdjacentHTML('beforeend', html);
+    },
+    
+         displaySongDetails(img, title, artist, previewUrl) {
+            const detailDiv = document.querySelector(DOMElements.divSongDetail);
+            const html = `
+                <div class="row col-sm-12 px-0">
+                    <img src="${img}" alt="${title}" class="song-image">
+                </div>
+                <div class="row col-sm-12 px-0">
+                    <label for="Song Title" class="form-label col-sm-12">${title}</label>
+                </div>
+                <div class="row col-sm-12 px-0">
+                    <label for="Artist" class="form-label col-sm-12">By ${artist}</label>
+                </div>
+            `;
+            // If there's a preview URL, add the audio player
+            if (previewUrl) {
+                const audioHtml = `
+                    <div class="row col-sm-12 px-0">
+                        <audio controls>
+                            <source src="${previewUrl}" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                `;
+                detailDiv.innerHTML = html + audioHtml;
+            } else {
+                // If there's no preview URL, add a message
+                const noPreviewHtml = `
+                    <div class="row col-sm-12 px-0">
+                        <label class="form-label col-sm-12">No preview available for this track.</label>
+                    </div>
+                `;
+                detailDiv.innerHTML = html + noPreviewHtml;
+            }
+        },
+    
       // need method to create the song detail
       createTrackDetail(img, title, artist) {
 
@@ -269,20 +310,45 @@ const APPController = (function(UICtrl, APICtrl) {
   });
 
 
-  // create song selection click event listener
-  DOMInputs.tracks.addEventListener('click', async (e) => {
-      // prevent page reset
-      e.preventDefault();
-      UICtrl.resetTrackDetail();
-      // get the token
-      const token = UICtrl.getStoredToken().token;
-      // get the track endpoint
-      const trackEndpoint = e.target.id;
-      //get the track object
-      const track = await APICtrl.getTrack(token, trackEndpoint);
-      // load the track details
-      UICtrl.createTrackDetail(track.album.images[2].url, track.name, track.artists[0].name);
-  });    
+//   // create song selection click event listener
+//   DOMInputs.tracks.addEventListener('click', async (e) => {
+//       // prevent page reset
+//       e.preventDefault();
+//       UICtrl.resetTrackDetail();
+//       // get the token
+//       const token = UICtrl.getStoredToken().token;
+//       // get the track endpoint
+//       const trackEndpoint = e.target.id;
+//       //get the track object
+//       const track = await APICtrl.getTrack(token, trackEndpoint);
+//       // load the track details
+//       UICtrl.createTrackDetail(track.album.images[2].url, track.name, track.artists[0].name);
+//   });    
+
+DOMInputs.tracks.addEventListener('click', async (e) => {
+    e.preventDefault();
+
+    UICtrl.resetTrackDetail();
+
+    const trackId = e.target.getAttribute('data-track');
+    const token = UICtrl.getStoredToken().token;
+    const trackEndpoint = `https://api.spotify.com/v1/tracks/${trackId}`;
+
+    const track = await APICtrl.getTrack(token, trackId);
+    const previewUrl = track.preview_url;
+    const songImg = track.album.images[0].url;
+    const title = track.name;
+    const artist = track.artists[0].name;
+    console
+    if (previewUrl) {
+        // const title = track.name;
+        // const artist = track.artists[0].name;
+        UICtrl.displaySongDetails(songImg, title, artist, previewUrl);
+    } else {
+        console.log('No preview available for this track');
+        UICtrl.displaySongDetails(songImg, title, artist);
+    }
+});
 
   return {
       init() {
